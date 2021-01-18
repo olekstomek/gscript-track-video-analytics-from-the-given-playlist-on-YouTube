@@ -65,6 +65,7 @@ function retrieveVideosFromPlaylist(playlistToRefresh) {
     response = playlistToRefresh
   } else {
     response = SpreadsheetApp.getUi().prompt('Enter url to playlist with videos on YouTube').getResponseText()
+    clearData()
     showGivenPlaylist(response)
   }
   
@@ -101,21 +102,21 @@ function getStats(videoIds) {
 // Converts the API results to cells in the sheet. Updates the time of the last update of data in the file.
 function writeStats(stats) {
   var sheet = SpreadsheetApp.getActive().getSheetByName(SHEET_NAME)
-  
+  var row = 3
   for (var i = 0; i < stats.length; i++) {
-    var cell = sheet.setActiveCell(Column.TITLE + (3+i))
+    var cell = sheet.setActiveCell(Column.TITLE + (row + i))
     cell.setValue('=HYPERLINK("https://www.youtube.com/watch?v=' + stats[i].id + '";"' + stats[i].snippet.title + '")')
-    cell = sheet.setActiveCell(Column.PUBLISHEDAT + (3+i))
+    cell = sheet.setActiveCell(Column.PUBLISHEDAT + (row + i))
     cell.setValue(setFormatDateAndTime(new Date(stats[i].snippet.publishedAt)))
-    cell = sheet.setActiveCell(Column.VIEWS + (3+i))
+    cell = sheet.setActiveCell(Column.VIEWS + (row + i))
     cell.setValue(stats[i].statistics.viewCount)
-    cell = sheet.setActiveCell(Column.LIKES + (3+i))
+    cell = sheet.setActiveCell(Column.LIKES + (row + i))
     cell.setValue(stats[i].statistics.likeCount)
-    cell = sheet.setActiveCell(Column.DISLIKES + (3+i))
+    cell = sheet.setActiveCell(Column.DISLIKES + (row + i))
     cell.setValue(stats[i].statistics.dislikeCount)
-    cell = sheet.setActiveCell(Column.COMMENTS + (3+i))
+    cell = sheet.setActiveCell(Column.COMMENTS + (row + i))
     cell.setValue(stats[i].statistics.commentCount)
-    cell = sheet.setActiveCell(Column.DURATION + (3+i))
+    cell = sheet.setActiveCell(Column.DURATION + (row + i))
     cell.setValue(parseISO8601Duration(stats[i].contentDetails.duration))
   }
   
