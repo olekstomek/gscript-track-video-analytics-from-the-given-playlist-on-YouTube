@@ -37,9 +37,9 @@ To use this solution, [copy my Google Sheet file](https://docs.google.com/spread
 Known bug:
 ```
 GoogleJsonResponseException: API call to youtube.videos.list failed with error: The request specifies an invalid filter parameter.
-over 50 videos in the playlist 
+
 ```
 
-(max request in YouTube API is 50).
+over 50 videos in the playlist (max request in YouTube API is 50).
 
 In columns `H`, `I`, `J`, `K`, `L` the results are calculated with Excel functions. If you want to practice, you can replace these functions with Google Apps Script functions. :)
