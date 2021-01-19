@@ -25,7 +25,7 @@ The data is presented with summary data and easy-to-read charts and illustrate w
 
 The script is automatically called by the trigger every specified time, so the data of the last playlist is always up to date. Google Sheet saves the history of file changes and you can also view historical data to compare them with the current ones, for example.
 
-To use this solution, copy my Google Sheet file to your Google Drive and use [Google Apps Script](https://www.google.com/script/start/).
+To use this solution, [copy my Google Sheet file](https://docs.google.com/spreadsheets/d/1HS97RilldRiW7dInC4NbJvbpgi-x4YXzQGF6nTBok7A/edit?usp=sharing) to your Google Drive and use [Google Apps Script](https://www.google.com/script/start/).
 
 ![alt text](images/YouTube_tracker_stats.gif "Gif how it works")
 ![alt text](images/YouTubeStats_1.png)
